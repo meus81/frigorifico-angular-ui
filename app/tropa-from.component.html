@@ -1,0 +1,26 @@
+{{diagnostic}}
+<div class="container">
+    <h1>Agregar Nueva Tropa</h1>
+    <form>
+      <div class="form-group">
+        <label for="numeroTropa">Numero de Tropa</label>
+        <input type="text" class="form-control" required [(ngModel)]="model.numeroTropa">
+        TODO: remove this: {{model.name}}
+      </div>
+      <div class="form-group">
+        <label for="fechaIngreso">Fecha Ingreso</label>
+        <input type="text" class="form-control" [(ngModel)]="model.fechaIngreso"> 
+      </div>
+      <div class="form-group">
+        <label for="animalesRecibidos">Cantidad de animales recibidos</label>
+        <input type="text" class="form-control" [(ngModel)]="model.animalesRecibidos">
+      </div>
+      <div class="form-group">
+		  <label for="especie">Especie</label>
+		  <select class="form-control" required [(ngModel)]="model.especie">
+		    <option *ngFor="#e of especies" [value]="e">{{e}}</option>
+		  </select>
+	  </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+</div>
