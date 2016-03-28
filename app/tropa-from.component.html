@@ -1,26 +1,27 @@
 {{diagnostic}}
 <div class="container">
     <h1>Agregar Nueva Tropa</h1>
-    <form>
+    <form *ngIf="active" (ngSubmit)="onSubmit()" #tropaForm="ngForm">
       <div class="form-group">
         <label for="numeroTropa">Numero de Tropa</label>
-        <input type="text" class="form-control" required [(ngModel)]="model.numeroTropa">
+        <input type="text" class="form-control" required [(ngModel)]="model.numeroTropa" ngControl="numeroTropa">
         TODO: remove this: {{model.name}}
       </div>
       <div class="form-group">
         <label for="fechaIngreso">Fecha Ingreso</label>
-        <input type="text" class="form-control" [(ngModel)]="model.fechaIngreso"> 
+        <input type="text" class="form-control" [(ngModel)]="model.fechaIngreso" ngControl="fechaIngreso"> 
       </div>
       <div class="form-group">
         <label for="animalesRecibidos">Cantidad de animales recibidos</label>
-        <input type="text" class="form-control" [(ngModel)]="model.animalesRecibidos">
+        <input type="text" class="form-control" [(ngModel)]="model.animalesRecibidos" ngControl="animalesRecibidos">
       </div>
       <div class="form-group">
 		  <label for="especie">Especie</label>
-		  <select class="form-control" required [(ngModel)]="model.especie">
+		  <select class="form-control" required [(ngModel)]="model.especie" ngControl="especie">
 		    <option *ngFor="#e of especies" [value]="e">{{e}}</option>
 		  </select>
 	  </div>
+	  <button type="button" class="btn btn-default" (click)="newTropa()">Nueva Tropa</button>
       <button type="submit" class="btn btn-default">Submit</button>
     </form>
 </div>
