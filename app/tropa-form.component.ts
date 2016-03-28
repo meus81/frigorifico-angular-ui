@@ -1,6 +1,7 @@
 import {Component} from 'angular2/core';
 import {NgForm}    from 'angular2/common';
 import {Tropa} from './tropa';
+import {TropaService} from './tropa-service';
 
 @Component({
     selector: 'tropa-form',    
@@ -16,6 +17,7 @@ export class TropaFormComponent{
     
     onSubmit() { 
         this.submitted = true;
+        addTropa(model);
     }
     
     // TODO: Remove this when we're done
