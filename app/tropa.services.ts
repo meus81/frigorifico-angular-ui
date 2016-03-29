@@ -1,12 +1,12 @@
 import {Injectable} from 'angular2/core';
 import {Headers, RequestOptions} from 'angular2/http';
+import {Http, Response} from 'angular2/http';
 import {Tropa} from './tropa';
-import 'rxjs/Rx';
+import {Observable} from 'rxjs/Observable';
 
 @Injectable()
-class export TropaServices {
-    
-    constructor(private http: Http) { 
+export class TropaServices{
+	constructor(private http: Http) { 
     }
     
     addTropa(tropa: Tropa) : Observable < Tropa > {

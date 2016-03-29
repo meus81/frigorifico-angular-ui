@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/http', './tropa', 'rxjs/Rx'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/http', 'rxjs/Observable'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,8 +10,8 @@ System.register(['angular2/core', 'angular2/http', './tropa', 'rxjs/Rx'], functi
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, http_1, tropa_1;
-    var default_1;
+    var core_1, http_1, http_2, Observable_1;
+    var TropaServices;
     return {
         setters:[
             function (core_1_1) {
@@ -19,43 +19,37 @@ System.register(['angular2/core', 'angular2/http', './tropa', 'rxjs/Rx'], functi
             },
             function (http_1_1) {
                 http_1 = http_1_1;
+                http_2 = http_1_1;
             },
-            function (tropa_1_1) {
-                tropa_1 = tropa_1_1;
-            },
-            function (_1) {}],
+            function (Observable_1_1) {
+                Observable_1 = Observable_1_1;
+            }],
         execute: function() {
-            default_1 = (function () {
-                function default_1() {
+            TropaServices = (function () {
+                function TropaServices(http) {
+                    this.http = http;
                 }
-                default_1 = __decorate([
-                    core_1.Injectable(), 
-                    __metadata('design:paramtypes', [])
-                ], default_1);
-                return default_1;
-            }());
-            TropaServices;
-            {
-                constructor(private, http, Http);
-                {
-                }
-                addTropa(tropa, tropa_1.Tropa);
-                Observable < tropa_1.Tropa > {
-                    let: body = JSON.stringify({ tropa: tropa }),
-                    let: headers = new http_1.Headers({ 'Content-Type': 'application/json' }),
-                    let: options = new http_1.RequestOptions({ headers: headers }),
-                    return: this.http.post('http://localhost:8080/frigorifico/rest/nueva_tropa', body, options)
+                TropaServices.prototype.addTropa = function (tropa) {
+                    var body = JSON.stringify({ tropa: tropa });
+                    var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+                    var options = new http_1.RequestOptions({ headers: headers });
+                    return this.http.post('http://localhost:8080/frigorifico/rest/nueva_tropa', body, options)
                         .map(function (res) { return res.json().data; })
-                        .catch(this.handleError)
+                        .catch(this.handleError);
                 };
-                handleError(error, Response);
-                {
+                TropaServices.prototype.handleError = function (error) {
                     // in a real world app, we may send the error to some remote logging infrastructure
                     // instead of just logging it to the console
                     console.error(error);
-                    return Observable.throw(error.json().error || 'Server error');
-                }
-            }
+                    return Observable_1.Observable.throw(error.json().error || 'Server error');
+                };
+                TropaServices = __decorate([
+                    core_1.Injectable(), 
+                    __metadata('design:paramtypes', [http_2.Http])
+                ], TropaServices);
+                return TropaServices;
+            }());
+            exports_1("TropaServices", TropaServices);
         }
     }
 });

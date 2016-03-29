@@ -1,4 +1,4 @@
-System.register(['angular2/core', './tropa', './tropa-services'], function(exports_1, context_1) {
+System.register(['angular2/core', './tropa', './tropa.services'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -30,7 +30,7 @@ System.register(['angular2/core', './tropa', './tropa-services'], function(expor
                     this.especies = ['Ovino', 'Porcino', 'Vacuno'];
                     this.submitted = false;
                     this.active = true;
-                    this.model = new tropa_1.Tropa(100, '2016-02-23 12:02:30.000', 43, 1);
+                    this.model = new tropa_1.Tropa(100, '2016-02-23 12:02:30.000', 43, 'Ovino');
                 }
                 TropaFormComponent.prototype.newTropa = function () {
                     var _this = this;
@@ -55,10 +55,9 @@ System.register(['angular2/core', './tropa', './tropa-services'], function(expor
                         selector: 'tropa-form',
                         templateUrl: 'app/tropa-from.component.html'
                     }), 
-                    __metadata('design:paramtypes', [(typeof (_a = typeof tropa_services_1.TropaServices !== 'undefined' && tropa_services_1.TropaServices) === 'function' && _a) || Object])
+                    __metadata('design:paramtypes', [tropa_services_1.TropaServices])
                 ], TropaFormComponent);
                 return TropaFormComponent;
-                var _a;
             }());
             exports_1("TropaFormComponent", TropaFormComponent);
         }
