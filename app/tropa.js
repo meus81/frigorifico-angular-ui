@@ -5,15 +5,12 @@ System.register([], function(exports_1, context_1) {
     return {
         setters:[],
         execute: function() {
-            /*
-            * http://usejsdoc.org/
-            */
             Tropa = (function () {
-                function Tropa(numeroTropa, fechaIngreso, animalesRecibidos, especie) {
+                function Tropa(numeroTropa, fechaIngreso, animalesRecibidos, especieId) {
                     this.numeroTropa = numeroTropa;
                     this.fechaIngreso = fechaIngreso;
                     this.animalesRecibidos = animalesRecibidos;
-                    this.especie = especie;
+                    this.especieId = especieId;
                 }
                 return Tropa;
             }());

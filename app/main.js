@@ -1,7 +1,7 @@
-System.register(['angular2/platform/browser', './app.component', 'angular2/http'], function(exports_1, context_1) {
+System.register(['angular2/platform/browser', './app.component', 'angular2/http', './tropa.services', './app.constants'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var browser_1, app_component_1, http_1;
+    var browser_1, app_component_1, http_1, tropa_services_1, app_constants_1;
     return {
         setters:[
             function (browser_1_1) {
@@ -12,9 +12,15 @@ System.register(['angular2/platform/browser', './app.component', 'angular2/http'
             },
             function (http_1_1) {
                 http_1 = http_1_1;
+            },
+            function (tropa_services_1_1) {
+                tropa_services_1 = tropa_services_1_1;
+            },
+            function (app_constants_1_1) {
+                app_constants_1 = app_constants_1_1;
             }],
         execute: function() {
-            browser_1.bootstrap(app_component_1.AppComponent, [http_1.HTTP_PROVIDERS, TropaServices]);
+            browser_1.bootstrap(app_component_1.AppComponent, [http_1.HTTP_PROVIDERS, app_constants_1.Configuration, tropa_services_1.TropaServices]);
         }
     }
 });

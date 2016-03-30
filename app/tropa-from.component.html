@@ -4,23 +4,28 @@
     <form *ngIf="active" (ngSubmit)="onSubmit()" #tropaForm="ngForm">
       <div class="form-group">
         <label for="numeroTropa">Numero de Tropa</label>
-        <input type="text" class="form-control" required [(ngModel)]="model.numeroTropa" ngControl="numeroTropa">
-        TODO: remove this: {{model.name}}
+        <input type="text" class="form-control" required [(ngModel)]="tropa.numeroTropa" ngControl="numeroTropa">
+        TODO: remove this: {{tropa.name}}
       </div>
       <div class="form-group">
         <label for="fechaIngreso">Fecha Ingreso</label>
-        <input type="text" class="form-control" [(ngModel)]="model.fechaIngreso" ngControl="fechaIngreso"> 
+        <input type="text" class="form-control" [(ngModel)]="tropa.fechaIngreso" ngControl="fechaIngreso"> 
       </div>
       <div class="form-group">
         <label for="animalesRecibidos">Cantidad de animales recibidos</label>
-        <input type="text" class="form-control" [(ngModel)]="model.animalesRecibidos" ngControl="animalesRecibidos">
+        <input type="text" class="form-control" [(ngModel)]="tropa.animalesRecibidos" ngControl="animalesRecibidos">
       </div>
       <div class="form-group">
-		  <label for="especie">Especie</label>
-		  <select class="form-control" required [(ngModel)]="model.especie" ngControl="especie">
+		  <label for="especieId">EspecieId</label>
+		  <select class="form-control" required [(ngModel)]="tropa.especieId" ngControl="especieId" >
 		    <option *ngFor="#e of especies" [value]="e">{{e}}</option>
+		    <!--
+		    <select [(ngModel)]="objValue.name"> 
+		    <option *ngFor="#oo of objArray" [value]="oo.name">{{oo.name}}</option> 
+		    -->
 		  </select>
 	  </div>
+
 	  <button type="button" class="btn btn-default" (click)="newTropa()">Nueva Tropa</button>
       <button type="submit" class="btn btn-default">Submit</button>
     </form>
