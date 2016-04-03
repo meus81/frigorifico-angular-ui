@@ -6,7 +6,8 @@ System.register([], function(exports_1, context_1) {
         setters:[],
         execute: function() {
             Tropa = (function () {
-                function Tropa(numeroTropa, fechaIngreso, animalesRecibidos, especieId) {
+                function Tropa(idTropa, numeroTropa, fechaIngreso, animalesRecibidos, especieId) {
+                    this.idTropa = idTropa;
                     this.numeroTropa = numeroTropa;
                     this.fechaIngreso = fechaIngreso;
                     this.animalesRecibidos = animalesRecibidos;

@@ -1,7 +1,8 @@
 import {bootstrap}    from 'angular2/platform/browser';
 import {AppComponent} from './app.component';
-import {HTTP_PROVIDERS} from 'angular2/http';
+import {HTTP_PROVIDERS, HTTP_BINDINGS} from 'angular2/http';
+import 'rxjs/Rx';
 import {TropaServices} from './tropa.services';
 import {Configuration} from './app.constants';
 
-bootstrap(AppComponent, [HTTP_PROVIDERS, Configuration, TropaServices]);
+bootstrap(AppComponent, [HTTP_PROVIDERS, HTTP_BINDINGS, Configuration, TropaServices]);
