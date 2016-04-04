@@ -39,6 +39,7 @@ export class LoginFormComponent{
                                 error =>  this.errorMessage = <any>error,
                                 () => console.log('Logueo de usuario completado')
         );
+    
     }
     
     actualizarUsuario(u){
