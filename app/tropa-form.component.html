@@ -19,10 +19,6 @@
 		  <label for="especieId">EspecieId</label>
 		  <select class="form-control" required [(ngModel)]="tropa.especieId" ngControl="especieId" >
 		    <option *ngFor="#e of especies" [value]="e">{{e}}</option>
-		    <!--
-		    <select [(ngModel)]="objValue.name"> 
-		    <option *ngFor="#oo of objArray" [value]="oo.name">{{oo.name}}</option> 
-		    -->
 		  </select>
 	  </div>
 

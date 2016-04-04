@@ -1,0 +1,17 @@
+{{login_diagnostic}}
+<div class="container">
+	<h1>Login</h1>
+	<form *ngIf= "active" (ngSubmit)="onSubmit()" #loginForm="ngForm">
+		<div class="form-group">
+			<label for="nombre"> Usuario: </label>
+			<input type="text" class="form-control" required [(ngModel)]="usuario.nombre" ngControl="nombre">
+		</div>
+		<div class="form-group">
+			<label for="contrasenia"> Contrase&ntilde;a: </label>
+			<input type="password" class="form-control" required [(ngModel)]="usuario.contrasenia" ngControl="contrasenia">
+		</div>
+		
+		<button type="button" class="btn btn-default" (click)="limpiar()">Limpiar</button>
+		<button type="submit" class="btn btn-default">Enviar</button>
+	</form>
+</div>

@@ -1,13 +1,13 @@
+import {CORE_DIRECTIVES } from 'angular2/common';
+import {HTTP_BINDINGS} from 'angular2/http';
 import {Component} from 'angular2/core';
 import {NgForm}    from 'angular2/common';
-import { CORE_DIRECTIVES } from 'angular2/common';
-import {HTTP_BINDINGS} from 'angular2/http';
 import {Tropa} from './tropa';
 import {TropaServices} from './tropa.services';
 
 @Component({
     selector: 'tropa-form',    
-    templateUrl: 'app/tropa-from.component.html',
+    templateUrl: 'app/tropa-form.component.html',
     providers: [TropaServices, HTTP_BINDINGS],
     directives: [CORE_DIRECTIVES]
 })
@@ -31,7 +31,7 @@ export class TropaFormComponent{
     
     onSubmit() { 
         this.submitted = true;
-        console.log("voy a invocar al post...");
+        console.log("voy a invocar al post de guardar tropa...");
         //console.log(this._tropaServices.addTropa(this.tropa));
         this._tropaServices.addTropa(this.tropa)
                             .subscribe(
@@ -40,17 +40,6 @@ export class TropaFormComponent{
                                 () => console.log('Tropa saved Complete')
         );
     }
-    
-    
-//    this.http.post('http://localhost:3001/sessions/create', creds, {
-//    headers: headers
-//    })
-//    .map(res => res.json())
-//    .subscribe(
-//      data => this.saveJwt(data.id_token),
-//      err => this.logError(err),
-//      () => console.log('Authentication Complete')
-//    );
 
     actualizarTropa(t){
         console.log("imprimo la tropa recibida");

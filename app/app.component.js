@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/http', './tropa-form.component', './tropa.services'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/http', './login-form.component', './login.services', './tropa-form.component', './tropa.services'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/http', './tropa-form.component', './
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, http_1, tropa_form_component_1, tropa_services_1;
+    var core_1, http_1, login_form_component_1, login_services_1, tropa_form_component_1, tropa_services_1;
     var AppComponent;
     return {
         setters:[
@@ -19,6 +19,12 @@ System.register(['angular2/core', 'angular2/http', './tropa-form.component', './
             },
             function (http_1_1) {
                 http_1 = http_1_1;
+            },
+            function (login_form_component_1_1) {
+                login_form_component_1 = login_form_component_1_1;
+            },
+            function (login_services_1_1) {
+                login_services_1 = login_services_1_1;
             },
             function (tropa_form_component_1_1) {
                 tropa_form_component_1 = tropa_form_component_1_1;
@@ -29,16 +35,17 @@ System.register(['angular2/core', 'angular2/http', './tropa-form.component', './
         execute: function() {
             AppComponent = (function () {
                 function AppComponent() {
-                    this.title = 'Frigorífico';
+                    this.title = 'Capiangos';
                 }
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'frigorifico-component',
-                        template: "\n    <h1>{{title}}</h1>\n    <tropa-form></tropa-form>\n  ",
-                        directives: [tropa_form_component_1.TropaFormComponent],
+                        template: "\n    <h1>{{title}}</h1>\n    <login-form></login-form>\n  ",
+                        directives: [login_form_component_1.LoginFormComponent, tropa_form_component_1.TropaFormComponent],
                         providers: [
                             http_1.HTTP_PROVIDERS,
                             tropa_services_1.TropaServices,
+                            login_services_1.LoginServices
                         ]
                     }), 
                     __metadata('design:paramtypes', [])
