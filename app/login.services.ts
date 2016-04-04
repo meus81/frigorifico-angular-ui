@@ -15,7 +15,7 @@ export class LoginServices{
 	private headers: Headers;
 
     constructor(private _http: Http, private _configuration: Configuration) {
-        this.actionUrl = _configuration.ServerWithApiUrl + 'loguin';
+        this.actionUrl = _configuration.ServerWithApiUrl + 'login';
 	    console.log(this.actionUrl);
 	    this.headers = new Headers();
 	    this.headers.append('Content-Type', 'application/json');
