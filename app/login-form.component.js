@@ -1,4 +1,4 @@
-System.register(['angular2/common', 'angular2/http', 'angular2/core', './login.services', './usuario'], function(exports_1, context_1) {
+System.register(['angular2/common', 'angular2/http', 'angular2/core', 'angular2/router', './login.services', './usuario'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/common', 'angular2/http', 'angular2/core', './login.s
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var common_1, http_1, core_1, login_services_1, usuario_1;
+    var common_1, http_1, core_1, router_1, login_services_1, usuario_1;
     var LoginFormComponent;
     return {
         setters:[
@@ -23,6 +23,9 @@ System.register(['angular2/common', 'angular2/http', 'angular2/core', './login.s
             function (core_1_1) {
                 core_1 = core_1_1;
             },
+            function (router_1_1) {
+                router_1 = router_1_1;
+            },
             function (login_services_1_1) {
                 login_services_1 = login_services_1_1;
             },
@@ -31,8 +34,9 @@ System.register(['angular2/common', 'angular2/http', 'angular2/core', './login.s
             }],
         execute: function() {
             LoginFormComponent = (function () {
-                function LoginFormComponent(_loginServices) {
+                function LoginFormComponent(_loginServices, _router) {
                     this._loginServices = _loginServices;
+                    this._router = _router;
                     this.submitted = false;
                     this.active = true;
                     this.usuario = new usuario_1.Usuario();
@@ -49,6 +53,7 @@ System.register(['angular2/common', 'angular2/http', 'angular2/core', './login.s
                     console.log("voy a invocar al post del login...");
                     this._loginServices.login(this.usuario)
                         .subscribe(function (usuario) { return _this.actualizarUsuario(usuario); }, function (error) { return _this.errorMessage = error; }, function () { return console.log('Logueo de usuario completado'); });
+                    this._router.navigate(['Home']);
                 };
                 LoginFormComponent.prototype.actualizarUsuario = function (u) {
                     console.log("imprimo el usuario recibido");
@@ -72,7 +77,7 @@ System.register(['angular2/common', 'angular2/http', 'angular2/core', './login.s
                         providers: [login_services_1.LoginServices, http_1.HTTP_BINDINGS],
                         directives: [common_1.CORE_DIRECTIVES]
                     }), 
-                    __metadata('design:paramtypes', [login_services_1.LoginServices])
+                    __metadata('design:paramtypes', [login_services_1.LoginServices, router_1.Router])
                 ], LoginFormComponent);
                 return LoginFormComponent;
             }());

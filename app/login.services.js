@@ -35,7 +35,7 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable', 'rxjs/add/
                 function LoginServices(_http, _configuration) {
                     this._http = _http;
                     this._configuration = _configuration;
-                    this.actionUrl = _configuration.ServerWithApiUrl + 'loguin';
+                    this.actionUrl = _configuration.ServerWithApiUrl + 'login';
                     console.log(this.actionUrl);
                     this.headers = new http_1.Headers();
                     this.headers.append('Content-Type', 'application/json');
@@ -46,7 +46,7 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable', 'rxjs/add/
                     this.headers.append('Access-Control-Allow-Credentials', "true");
                 }
                 LoginServices.prototype.login = function (usuario) {
-                    console.log("voy a enviar esta tropa");
+                    console.log("voy a enviar login con nombre y contrasenia");
                     var body = JSON.stringify({ "nombre": usuario.nombre,
                         "contrasenia": usuario.contrasenia
                     });

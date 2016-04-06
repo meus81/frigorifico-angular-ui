@@ -1,6 +1,7 @@
 import {CORE_DIRECTIVES } from 'angular2/common';
 import {HTTP_BINDINGS} from 'angular2/http';
 import {Component} from 'angular2/core';
+import {Router}   from 'angular2/router';
 import {NgForm}    from 'angular2/common';
 import {LoginServices} from './login.services';
 import {Usuario} from './usuario';
@@ -21,7 +22,8 @@ export class LoginFormComponent{
     usuario = new Usuario();
     
     constructor(
-        private _loginServices: LoginServices
+        private _loginServices: LoginServices,
+    	private _router: Router
     ) { }
 
     limpiar(){
@@ -31,6 +33,7 @@ export class LoginFormComponent{
     }
     
     onSubmit() { 
+    	
         this.submitted = true;
         console.log("voy a invocar al post del login...");
         this._loginServices.login(this.usuario)
@@ -39,7 +42,7 @@ export class LoginFormComponent{
                                 error =>  this.errorMessage = <any>error,
                                 () => console.log('Logueo de usuario completado')
         );
-    
+        this._router.navigate( ['Home'] );
     }
     
     actualizarUsuario(u){

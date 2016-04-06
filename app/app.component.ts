@@ -8,15 +8,15 @@ import {LoginServices} from './login.services';
 import {TropaFormComponent } from './tropa-form.component';
 import {TropaServices} from './tropa.services';
 
+import {HomeFormComponent} frm './home-form.component';
+
 @Component({
   selector: 'frigorifico-component',
   template: `
     <h1>{{title}}</h1>
-        <nav>
-            <a [routerLink]="['CargarTropa']">Cargar Tropa</a>
-        </nav>
-    <router-outlet></router-outlet>  `,
-  directives: [ROUTER_DIRECTIVES, LoginFormComponent, TropaFormComponent],
+    <router-outlet></router-outlet>
+  `,
+  directives: [ROUTER_DIRECTIVES, LoginFormComponent, TropaFormComponent, HomeFormComponent],
   providers: [
     HTTP_PROVIDERS,
     TropaServices,
@@ -24,7 +24,10 @@ import {TropaServices} from './tropa.services';
   ]
 })
 @RouteConfig([
-  {path:'/nueva_tropa', name:'CargarTropa', component: TropaFormComponent},
+	{path: '/login', name: 'Login', component: LoginFormComponent,useAsDefault:true},
+	{path: '/home', name: 'Home', component: HomeFormComponent},
+	{path: '/cargarTropa', name: 'CargarTropa', component: TropaFormComponent}
+	
 ])
     
 export class AppComponent {

@@ -27,7 +27,7 @@ export class LoginServices{
 	}
     
     public login(usuario: Usuario) : Observable<Usuario> {
-    	console.log("voy a enviar esta tropa");
+    	console.log("voy a enviar login con nombre y contrasenia");
         let body = JSON.stringify({"nombre": usuario.nombre,
                                    "contrasenia": usuario.contrasenia
         });
