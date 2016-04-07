@@ -8,7 +8,7 @@ import {LoginServices} from './login.services';
 import {TropaFormComponent } from './tropa-form.component';
 import {TropaServices} from './tropa.services';
 
-import {HomeFormComponent} frm './home-form.component';
+import {HomeFormComponent} from './home-form.component';
 
 @Component({
   selector: 'frigorifico-component',
@@ -24,10 +24,9 @@ import {HomeFormComponent} frm './home-form.component';
   ]
 })
 @RouteConfig([
-	{path: '/login', name: 'Login', component: LoginFormComponent,useAsDefault:true},
-	{path: '/home', name: 'Home', component: HomeFormComponent},
+	{path: '/login', name: 'Login', component: LoginFormComponent, useAsDefault:true},
+	{path: '/home', name: 'Inicio', component: HomeFormComponent},
 	{path: '/cargarTropa', name: 'CargarTropa', component: TropaFormComponent}
-	
 ])
     
 export class AppComponent {

@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/http', 'angular2/router', './login-form.component', './login.services', './tropa-form.component', './tropa.services'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/http', 'angular2/router', './login-form.component', './login.services', './tropa-form.component', './tropa.services', './home-form.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/http', 'angular2/router', './login-f
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, http_1, router_1, login_form_component_1, login_services_1, tropa_form_component_1, tropa_services_1, module_1;
+    var core_1, http_1, router_1, login_form_component_1, login_services_1, tropa_form_component_1, tropa_services_1, home_form_component_1;
     var AppComponent;
     return {
         setters:[
@@ -34,9 +34,11 @@ System.register(['angular2/core', 'angular2/http', 'angular2/router', './login-f
             },
             function (tropa_services_1_1) {
                 tropa_services_1 = tropa_services_1_1;
+            },
+            function (home_form_component_1_1) {
+                home_form_component_1 = home_form_component_1_1;
             }],
         execute: function() {
-            './home-form.component';
             AppComponent = (function () {
                 function AppComponent() {
                     this.title = 'Capiangos';
@@ -45,7 +47,7 @@ System.register(['angular2/core', 'angular2/http', 'angular2/router', './login-f
                     core_1.Component({
                         selector: 'frigorifico-component',
                         template: "\n    <h1>{{title}}</h1>\n    <router-outlet></router-outlet>\n  ",
-                        directives: [router_1.ROUTER_DIRECTIVES, login_form_component_1.LoginFormComponent, tropa_form_component_1.TropaFormComponent, module_1.HomeFormComponent],
+                        directives: [router_1.ROUTER_DIRECTIVES, login_form_component_1.LoginFormComponent, tropa_form_component_1.TropaFormComponent, home_form_component_1.HomeFormComponent],
                         providers: [
                             http_1.HTTP_PROVIDERS,
                             tropa_services_1.TropaServices,
@@ -54,7 +56,7 @@ System.register(['angular2/core', 'angular2/http', 'angular2/router', './login-f
                     }),
                     router_1.RouteConfig([
                         { path: '/login', name: 'Login', component: login_form_component_1.LoginFormComponent, useAsDefault: true },
-                        { path: '/home', name: 'Home', component: module_1.HomeFormComponent },
+                        { path: '/home', name: 'Inicio', component: home_form_component_1.HomeFormComponent },
                         { path: '/cargarTropa', name: 'CargarTropa', component: tropa_form_component_1.TropaFormComponent }
                     ]), 
                     __metadata('design:paramtypes', [])

@@ -1,4 +1,9 @@
 {{diagnostic}}
+<nav>
+    <a [routerLink]="['Inicio']">Inicio</a>
+    <a [routerLink]="['CerrarSesion']">Cerrar Sesión</a>        
+  </nav>
+<router-outlet></router-outlet>
 <div class="container">
     <h1>Agregar Nueva Tropa</h1>
     <form *ngIf="active" (ngSubmit)="onSubmit()" #tropaForm="ngForm">

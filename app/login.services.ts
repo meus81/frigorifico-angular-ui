@@ -13,8 +13,10 @@ export class LoginServices{
         
 	private actionUrl: string;
 	private headers: Headers;
+	private token: string;
 
     constructor(private _http: Http, private _configuration: Configuration) {
+    	this.token = localStorage.getItem('token');
         this.actionUrl = _configuration.ServerWithApiUrl + 'login';
 	    console.log(this.actionUrl);
 	    this.headers = new Headers();
@@ -27,6 +29,13 @@ export class LoginServices{
 	}
     
     public login(usuario: Usuario) : Observable<Usuario> {
+    	
+//    	if (username === 'test' && password === 'test') {
+//    	      this.token = 'token';
+//    	      localStorage.setItem('token', this.token);
+//    	      return Observable.of('token');
+//    	    }
+    	
     	console.log("voy a enviar login con nombre y contrasenia");
         let body = JSON.stringify({"nombre": usuario.nombre,
                                    "contrasenia": usuario.contrasenia
@@ -36,12 +45,31 @@ export class LoginServices{
         console.log(options);
         
         return this._http.post(this.actionUrl, body, options)
-            .map(res => <Usuario>res.json())
+            .map(res => {this.token='token'; localStorage.setItem('token', this.token); return <Usuario>res.json()})
             .do(data => console.log('server data:', data))  // debug
             .catch(this.handleError)
     }
     
-//    map((res: Response) => res.json()) .subscribe((res:Person) => this.postResponse = res);
+    logout() {
+        /*
+         * If we had a login api, we would have done something like this
+
+        return this.http.get(this.config.serverUrl + '/auth/logout', {
+          headers: new Headers({
+            'x-security-token': this.token
+          })
+        })
+        .map((res : any) => {
+          this.token = undefined;
+          localStorage.removeItem('token');
+        });
+         */
+
+        this.token = undefined;
+        localStorage.removeItem('token');
+        return Observable.of(true);
+      }
+    
     
     private handleError(error: Response) {
         // in a real world app, we may send the error to some remote logging infrastructure
@@ -49,4 +77,5 @@ export class LoginServices{
         console.error(error);
         return Observable.throw(error.json().error || 'Server error');
     }
+    
 }

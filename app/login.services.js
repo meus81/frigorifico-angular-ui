@@ -35,6 +35,7 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable', 'rxjs/add/
                 function LoginServices(_http, _configuration) {
                     this._http = _http;
                     this._configuration = _configuration;
+                    this.token = localStorage.getItem('token');
                     this.actionUrl = _configuration.ServerWithApiUrl + 'login';
                     console.log(this.actionUrl);
                     this.headers = new http_1.Headers();
@@ -46,6 +47,12 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable', 'rxjs/add/
                     this.headers.append('Access-Control-Allow-Credentials', "true");
                 }
                 LoginServices.prototype.login = function (usuario) {
+                    //    	if (username === 'test' && password === 'test') {
+                    //    	      this.token = 'token';
+                    //    	      localStorage.setItem('token', this.token);
+                    //    	      return Observable.of('token');
+                    //    	    }
+                    var _this = this;
                     console.log("voy a enviar login con nombre y contrasenia");
                     var body = JSON.stringify({ "nombre": usuario.nombre,
                         "contrasenia": usuario.contrasenia
@@ -54,11 +61,28 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable', 'rxjs/add/
                     var options = new http_1.RequestOptions({ headers: this.headers });
                     console.log(options);
                     return this._http.post(this.actionUrl, body, options)
-                        .map(function (res) { return res.json(); })
+                        .map(function (res) { _this.token = 'token'; localStorage.setItem('token', _this.token); return res.json(); })
                         .do(function (data) { return console.log('server data:', data); }) // debug
                         .catch(this.handleError);
                 };
-                //    map((res: Response) => res.json()) .subscribe((res:Person) => this.postResponse = res);
+                LoginServices.prototype.logout = function () {
+                    /*
+                     * If we had a login api, we would have done something like this
+            
+                    return this.http.get(this.config.serverUrl + '/auth/logout', {
+                      headers: new Headers({
+                        'x-security-token': this.token
+                      })
+                    })
+                    .map((res : any) => {
+                      this.token = undefined;
+                      localStorage.removeItem('token');
+                    });
+                     */
+                    this.token = undefined;
+                    localStorage.removeItem('token');
+                    return Observable_1.Observable.of(true);
+                };
                 LoginServices.prototype.handleError = function (error) {
                     // in a real world app, we may send the error to some remote logging infrastructure
                     // instead of just logging it to the console

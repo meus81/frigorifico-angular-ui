@@ -4,12 +4,13 @@ import {Component} from 'angular2/core';
 import {NgForm}    from 'angular2/common';
 import {Tropa} from './tropa';
 import {TropaServices} from './tropa.services';
+import { RouterLink } from 'angular2/router'
 
 @Component({
     selector: 'tropa-form',    
     templateUrl: 'app/tropa-form.component.html',
     providers: [TropaServices, HTTP_BINDINGS],
-    directives: [CORE_DIRECTIVES]
+    directives: [CORE_DIRECTIVES, RouterLink]
 })
 
 export class TropaFormComponent{

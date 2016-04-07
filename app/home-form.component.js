@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/http', 'angular2/router'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', './is-loggedin'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,18 +10,19 @@ System.register(['angular2/core', 'angular2/http', 'angular2/router'], function(
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, http_1, router_1;
+    var core_1, router_1, router_2, is_loggedin_1;
     var HomeFormComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (http_1_1) {
-                http_1 = http_1_1;
-            },
             function (router_1_1) {
                 router_1 = router_1_1;
+                router_2 = router_1_1;
+            },
+            function (is_loggedin_1_1) {
+                is_loggedin_1 = is_loggedin_1_1;
             }],
         execute: function() {
             HomeFormComponent = (function () {
@@ -33,8 +34,9 @@ System.register(['angular2/core', 'angular2/http', 'angular2/router'], function(
                         selector: 'home-form',
                         templateUrl: 'app/home-form.component.html',
                         providers: [router_1.ROUTER_DIRECTIVES],
-                        directives: [http_1.HTTP_PROVIDERS]
-                    }), 
+                        directives: [router_2.RouterLink]
+                    }),
+                    router_2.CanActivate(function () { return is_loggedin_1.isLoggedin(); }), 
                     __metadata('design:paramtypes', [])
                 ], HomeFormComponent);
                 return HomeFormComponent;

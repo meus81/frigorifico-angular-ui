@@ -10,12 +10,13 @@ System.register(['angular2/common', 'angular2/http', 'angular2/core', 'angular2/
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var common_1, http_1, core_1, router_1, login_services_1, usuario_1;
+    var common_1, http_1, core_1, router_1, common_2, login_services_1, usuario_1;
     var LoginFormComponent;
     return {
         setters:[
             function (common_1_1) {
                 common_1 = common_1_1;
+                common_2 = common_1_1;
             },
             function (http_1_1) {
                 http_1 = http_1_1;
@@ -34,25 +35,26 @@ System.register(['angular2/common', 'angular2/http', 'angular2/core', 'angular2/
             }],
         execute: function() {
             LoginFormComponent = (function () {
-                function LoginFormComponent(_loginServices, _router) {
+                function LoginFormComponent(fb, _loginServices, _router) {
                     this._loginServices = _loginServices;
                     this._router = _router;
-                    this.submitted = false;
-                    this.active = true;
+                    this.error = false;
                     this.usuario = new usuario_1.Usuario();
+                    this.form = fb.group({
+                        nombre: ['', common_2.Validators.required],
+                        contrasenia: ['', common_2.Validators.required]
+                    });
                 }
                 LoginFormComponent.prototype.limpiar = function () {
-                    var _this = this;
                     this.usuario = new usuario_1.Usuario();
-                    this.active = false;
-                    setTimeout(function () { return _this.active = true; }, 0);
+                    //setTimeout(()=> this.active=true, 0);
                 };
                 LoginFormComponent.prototype.onSubmit = function () {
                     var _this = this;
-                    this.submitted = true;
                     console.log("voy a invocar al post del login...");
                     this._loginServices.login(this.usuario)
                         .subscribe(function (usuario) { return _this.actualizarUsuario(usuario); }, function (error) { return _this.errorMessage = error; }, function () { return console.log('Logueo de usuario completado'); });
+                    console.log("vot a ejecutar el redirect");
                     this._router.navigate(['Home']);
                 };
                 LoginFormComponent.prototype.actualizarUsuario = function (u) {
@@ -61,6 +63,11 @@ System.register(['angular2/common', 'angular2/http', 'angular2/core', 'angular2/
                     this.usuario.idUsuario = u.idUsuario;
                     this.usuario.nombre = u.numeroTropa;
                     this.usuario.contrasenia = u.contrasenia;
+                };
+                LoginFormComponent.prototype.onLogout = function () {
+                    var _this = this;
+                    this._loginServices.logout()
+                        .subscribe(function () { return _this._router.navigate(['Login']); });
                 };
                 Object.defineProperty(LoginFormComponent.prototype, "login_diagnostic", {
                     // TODO: Remove this when we're done
@@ -75,9 +82,9 @@ System.register(['angular2/common', 'angular2/http', 'angular2/core', 'angular2/
                         selector: 'login-form',
                         templateUrl: 'app/login-form.component.html',
                         providers: [login_services_1.LoginServices, http_1.HTTP_BINDINGS],
-                        directives: [common_1.CORE_DIRECTIVES]
+                        directives: [common_1.CORE_DIRECTIVES, router_1.ROUTER_DIRECTIVES]
                     }), 
-                    __metadata('design:paramtypes', [login_services_1.LoginServices, router_1.Router])
+                    __metadata('design:paramtypes', [common_2.FormBuilder, login_services_1.LoginServices, router_1.Router])
                 ], LoginFormComponent);
                 return LoginFormComponent;
             }());

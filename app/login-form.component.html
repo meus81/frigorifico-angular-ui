@@ -1,7 +1,8 @@
 {{login_diagnostic}}
 <div class="container">
 	<h1>Login</h1>
-	<form *ngIf= "active" (ngSubmit)="onSubmit()" #loginForm="ngForm">
+	<form [ngFormModel]="form" (ngSubmit)="onSubmit()" >
+		<div *ngIf="error">Verifique su nombre de usuario y contraseña</div>
 		<div class="form-group">
 			<label for="nombre"> Usuario: </label>
 			<input type="text" class="form-control" required [(ngModel)]="usuario.nombre" ngControl="nombre">
@@ -12,6 +13,6 @@
 		</div>
 		
 		<button type="button" class="btn btn-default" (click)="limpiar()">Limpiar</button>
-		<button type="submit" class="btn btn-default">Enviar</button>
+		<button type="submit" class="btn btn-default" [disabled]="!form.valid">Enviar</button>
 	</form>
 </div>
