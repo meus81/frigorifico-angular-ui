@@ -1,7 +1,7 @@
 {{diagnostic}}
 <nav>
     <a [routerLink]="['Inicio']">Inicio</a>
-    <a [routerLink]="['CerrarSesion']">Cerrar Sesión</a>        
+	<a [routerLink]="['Logout']" (click)="logout()">Cerrar Sesi&oacute;n</a>
   </nav>
 <router-outlet></router-outlet>
 <div class="container">

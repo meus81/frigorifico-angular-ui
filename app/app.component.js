@@ -57,7 +57,8 @@ System.register(['angular2/core', 'angular2/http', 'angular2/router', './login-f
                     router_1.RouteConfig([
                         { path: '/login', name: 'Login', component: login_form_component_1.LoginFormComponent, useAsDefault: true },
                         { path: '/home', name: 'Inicio', component: home_form_component_1.HomeFormComponent },
-                        { path: '/cargarTropa', name: 'CargarTropa', component: tropa_form_component_1.TropaFormComponent }
+                        { path: '/cargarTropa', name: 'CargarTropa', component: tropa_form_component_1.TropaFormComponent },
+                        { path: '/logout', name: 'Logout', component: login_form_component_1.LoginFormComponent }
                     ]), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);

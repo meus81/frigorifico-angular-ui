@@ -10,6 +10,7 @@ import {TropaServices} from './tropa.services';
 
 import {HomeFormComponent} from './home-form.component';
 
+
 @Component({
   selector: 'frigorifico-component',
   template: `
@@ -27,6 +28,8 @@ import {HomeFormComponent} from './home-form.component';
 	{path: '/login', name: 'Login', component: LoginFormComponent, useAsDefault:true},
 	{path: '/home', name: 'Inicio', component: HomeFormComponent},
 	{path: '/cargarTropa', name: 'CargarTropa', component: TropaFormComponent}
+    {path: '/logout', name: 'Logout', component: LoginFormComponent}
+    
 ])
     
 export class AppComponent {

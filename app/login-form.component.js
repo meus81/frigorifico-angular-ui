@@ -55,7 +55,7 @@ System.register(['angular2/common', 'angular2/http', 'angular2/core', 'angular2/
                     this._loginServices.login(this.usuario)
                         .subscribe(function (usuario) { return _this.actualizarUsuario(usuario); }, function (error) { return _this.errorMessage = error; }, function () { return console.log('Logueo de usuario completado'); });
                     console.log("vot a ejecutar el redirect");
-                    this._router.navigate(['Home']);
+                    this._router.navigate(['Inicio']);
                 };
                 LoginFormComponent.prototype.actualizarUsuario = function (u) {
                     console.log("imprimo el usuario recibido");

@@ -43,7 +43,7 @@ export class LoginFormComponent{
                                 () => console.log('Logueo de usuario completado')
         );
         console.log("vot a ejecutar el redirect")
-        this._router.navigate( ['Home'] );
+        this._router.navigate( ['Inicio'] );
     }
     
     actualizarUsuario(u){
