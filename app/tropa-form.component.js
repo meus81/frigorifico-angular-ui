@@ -1,4 +1,4 @@
-System.register(['angular2/common', 'angular2/http', 'angular2/core', './tropa', './tropa.services', 'angular2/router'], function(exports_1, context_1) {
+System.register(['angular2/common', 'angular2/http', 'angular2/core', 'angular2/router', './modelo/tropa', './tropa.services', './especie.services'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/common', 'angular2/http', 'angular2/core', './tropa',
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var common_1, http_1, core_1, tropa_1, tropa_services_1, router_1;
+    var common_1, http_1, core_1, router_1, tropa_1, tropa_services_1, especie_services_1;
     var TropaFormComponent;
     return {
         setters:[
@@ -23,20 +23,23 @@ System.register(['angular2/common', 'angular2/http', 'angular2/core', './tropa',
             function (core_1_1) {
                 core_1 = core_1_1;
             },
+            function (router_1_1) {
+                router_1 = router_1_1;
+            },
             function (tropa_1_1) {
                 tropa_1 = tropa_1_1;
             },
             function (tropa_services_1_1) {
                 tropa_services_1 = tropa_services_1_1;
             },
-            function (router_1_1) {
-                router_1 = router_1_1;
+            function (especie_services_1_1) {
+                especie_services_1 = especie_services_1_1;
             }],
         execute: function() {
             TropaFormComponent = (function () {
                 function TropaFormComponent(_tropaServices) {
                     this._tropaServices = _tropaServices;
-                    this.especies = [1, 2, 3];
+                    this.especies = [];
                     this.submitted = false;
                     this.active = true;
                     this.tropa = new tropa_1.Tropa(null, 1, '2016-02-23 12:02:30.000', 43, 1);
@@ -75,7 +78,7 @@ System.register(['angular2/common', 'angular2/http', 'angular2/core', './tropa',
                     core_1.Component({
                         selector: 'tropa-form',
                         templateUrl: 'app/tropa-form.component.html',
-                        providers: [tropa_services_1.TropaServices, http_1.HTTP_BINDINGS],
+                        providers: [tropa_services_1.TropaServices, especie_services_1.EspecieServices, http_1.HTTP_BINDINGS],
                         directives: [common_1.CORE_DIRECTIVES, router_1.RouterLink]
                     }), 
                     __metadata('design:paramtypes', [tropa_services_1.TropaServices])

@@ -2,20 +2,22 @@ import {CORE_DIRECTIVES } from 'angular2/common';
 import {HTTP_BINDINGS} from 'angular2/http';
 import {Component} from 'angular2/core';
 import {NgForm}    from 'angular2/common';
-import {Tropa} from './tropa';
-import {TropaServices} from './tropa.services';
 import { RouterLink } from 'angular2/router'
+import {Tropa} from './modelo/tropa';
+import {TropaServices} from './tropa.services';
+import {Especie} from './modelo/especie'
+import {EspecieServices} from './especie.services'
 
 @Component({
     selector: 'tropa-form',    
     templateUrl: 'app/tropa-form.component.html',
-    providers: [TropaServices, HTTP_BINDINGS],
+    providers: [TropaServices, EspecieServices, HTTP_BINDINGS],
     directives: [CORE_DIRECTIVES, RouterLink]
 })
 
 export class TropaFormComponent{
     errorMessage: string;
-    especies = [1, 2, 3];
+    especies = [];
     submitted = false;
     active = true;
     tropa = new Tropa(null, 1, '2016-02-23 12:02:30.000', 43, 1);

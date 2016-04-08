@@ -4,7 +4,7 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';  // debug
 import 'rxjs/add/operator/catch';
-import {Tropa} from './tropa';
+import {Tropa} from './modelo/tropa';
 import {Configuration} from './app.constants';
 //import * as Rx from "rxjs/Rx"
 

@@ -4,7 +4,7 @@ import {Component} from 'angular2/core';
 import {Router, ROUTER_DIRECTIVES}   from 'angular2/router';
 import {NgForm, FormBuilder, ControlGroup, Validators} from 'angular2/common';
 import {LoginServices} from './login.services';
-import {Usuario} from './usuario';
+import {Usuario} from './modelo/usuario';
 
 @Component({
     selector: 'login-form',    

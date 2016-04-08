@@ -1,4 +1,4 @@
-System.register(['angular2/common', 'angular2/http', 'angular2/core', 'angular2/router', './login.services', './usuario'], function(exports_1, context_1) {
+System.register(['angular2/common', 'angular2/http', 'angular2/core', 'angular2/router', './login.services', './modelo/usuario'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
