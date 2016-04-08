@@ -1,5 +1,5 @@
 import {Component} from 'angular2/core';
-import {RouterLink, RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
+import {RouterLink, RouteConfig, Router, ROUTER_DIRECTIVES} from 'angular2/router';
 import {LoginServices}  from './login.services';
 
 @Component({

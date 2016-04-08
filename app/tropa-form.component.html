@@ -23,7 +23,7 @@
       <div class="form-group">
 		  <label for="especieId">EspecieId</label>
 		  <select class="form-control" required [(ngModel)]="tropa.especieId" ngControl="especieId" >
-		    <option *ngFor="#e of especies" [value]="e">{{e}}</option>
+		    <option *ngFor="#e of especies" [value]="e.idEspecie">{{e.descripcion}}</option>
 		  </select>
 	  </div>
 

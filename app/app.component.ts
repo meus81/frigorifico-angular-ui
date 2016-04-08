@@ -27,9 +27,8 @@ import {HomeFormComponent} from './home-form.component';
 @RouteConfig([
 	{path: '/login', name: 'Login', component: LoginFormComponent, useAsDefault:true},
 	{path: '/home', name: 'Inicio', component: HomeFormComponent},
-	{path: '/cargarTropa', name: 'CargarTropa', component: TropaFormComponent}
-    {path: '/logout', name: 'Logout', component: LoginFormComponent}
-    
+	{path: '/cargarTropa', name: 'CargarTropa', component: TropaFormComponent},
+    {path: '/logout', name: 'Logout', component: LoginFormComponent}    
 ])
     
 export class AppComponent {

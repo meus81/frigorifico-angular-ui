@@ -37,8 +37,9 @@ System.register(['angular2/common', 'angular2/http', 'angular2/core', 'angular2/
             }],
         execute: function() {
             TropaFormComponent = (function () {
-                function TropaFormComponent(_tropaServices) {
+                function TropaFormComponent(_tropaServices, _especieServices) {
                     this._tropaServices = _tropaServices;
+                    this._especieServices = _especieServices;
                     this.especies = [];
                     this.submitted = false;
                     this.active = true;
@@ -49,6 +50,14 @@ System.register(['angular2/common', 'angular2/http', 'angular2/core', 'angular2/
                     this.tropa = new tropa_1.Tropa();
                     this.active = false;
                     setTimeout(function () { return _this.active = true; }, 0);
+                };
+                TropaFormComponent.prototype.ngOnInit = function () {
+                    var _this = this;
+                    console.log("voy a hacer la consulta de especies");
+                    this._especieServices.getEspecies()
+                        .subscribe(function (esp) { return _this.especies = esp; });
+                    console.log(this.especies);
+                    console.log("despues de la consulta de especies");
                 };
                 TropaFormComponent.prototype.onSubmit = function () {
                     var _this = this;
@@ -81,7 +90,7 @@ System.register(['angular2/common', 'angular2/http', 'angular2/core', 'angular2/
                         providers: [tropa_services_1.TropaServices, especie_services_1.EspecieServices, http_1.HTTP_BINDINGS],
                         directives: [common_1.CORE_DIRECTIVES, router_1.RouterLink]
                     }), 
-                    __metadata('design:paramtypes', [tropa_services_1.TropaServices])
+                    __metadata('design:paramtypes', [tropa_services_1.TropaServices, especie_services_1.EspecieServices])
                 ], TropaFormComponent);
                 return TropaFormComponent;
             }());

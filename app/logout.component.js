@@ -41,7 +41,7 @@ System.register(['angular2/core', 'angular2/router', './login.services'], functi
                         providers: [router_1.ROUTER_DIRECTIVES, login_services_1.LoginServices],
                         directives: [router_1.RouterLink]
                     }), 
-                    __metadata('design:paramtypes', [login_services_1.LoginServices, Object])
+                    __metadata('design:paramtypes', [login_services_1.LoginServices, router_1.Router])
                 ], LogoutComponent);
                 return LogoutComponent;
             }());

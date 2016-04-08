@@ -6,6 +6,7 @@ import 'rxjs/add/operator/do';  // debug
 import 'rxjs/add/operator/catch';
 import {Tropa} from './modelo/tropa';
 import {Configuration} from './app.constants';
+
 //import * as Rx from "rxjs/Rx"
 
 @Injectable()
